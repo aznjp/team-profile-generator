@@ -103,7 +103,7 @@ function createIntern(answers) {
 
 function endQuestions() {
     inquirer.prompt(end).then(function(answers) {
-        if (answers.end === true) {
+        if (answers.end == true) {
             renderHTML();
         } else {
             createEmployee();
@@ -112,5 +112,5 @@ function endQuestions() {
 }
 
 function renderHTML() {
-
+    console.log(teamArray)
 }
