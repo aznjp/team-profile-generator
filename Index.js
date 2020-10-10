@@ -80,12 +80,28 @@ const managerQuestion = {
 const engineerQuestion = {
     type: 'input',
     message: 'What is your Github Profile?',
-    name: 'Github'
+    name: 'Github',
+    validate: function(github) {
+        if (github) {
+            return true;
+        } else {
+            console.log('Please enter a github account!');
+            return false;
+        }
+    }
 };
 const internQuestion = {
     type: 'input',
     message: "What is your school's name?",
-    name: 'School'
+    name: 'School',
+    validate: function(school) {
+        if (school) {
+            return true;
+        } else {
+            console.log('Please enter a real school!');
+            return false;
+        }
+    }
 };
 
 const end = {
