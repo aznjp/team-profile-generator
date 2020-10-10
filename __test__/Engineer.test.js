@@ -1,5 +1,19 @@
 const Engineer = require("../lib/Engineer");
 
+test("Can set name via constructor arguments", () => {
+    const testValue = "John"
+    const testValue2 = 178;
+    const testValue3 = "jpark103193@gmail.com";
+
+    const a = new Engineer(testValue);
+    const b = new Engineer("Foo", testValue2);
+    const c = new Engineer("Foo", 98, testValue3);
+
+    expect(a.name).toBe(testValue);
+    expect(b.id).toBe(testValue2);
+    expect(c.email).toBe(testValue3);
+});
+
 test("Testing engineer class constructor github details", () => {
     const testValue = "Aznjp";
     const e = new Engineer("Foo", 54, "jpark103193@gmail.com", testValue);

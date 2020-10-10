@@ -1,5 +1,19 @@
 const Intern = require("../lib/Intern");
 
+test("Can set name via constructor arguments", () => {
+    const testValue = "John"
+    const testValue2 = 178;
+    const testValue3 = "jpark103193@gmail.com";
+
+    const a = new Intern(testValue);
+    const b = new Intern("Foo", testValue2);
+    const c = new Intern("Foo", 98, testValue3);
+
+    expect(a.name).toBe(testValue);
+    expect(b.id).toBe(testValue2);
+    expect(c.email).toBe(testValue3);
+});
+
 test("Testing intern class constructor school details", () => {
     const testValue = "UCF";
     const e = new Intern("Foo", 1, "jpark103193@gmail.com", testValue);
