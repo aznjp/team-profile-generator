@@ -1,26 +1,60 @@
 const inquirer = require('inquirer')
 const fs = require('fs')
 
+const path = require("path");
+const outputDir = path.resolve(__dirname, "dist");
+const outputPath = path.join(outputDir, "index.html");
+const starterHTML = require('./src/Starter')
+
 const Manager = require("./lib/Manager");
 const Engineer = require("./lib/Engineer");
 const Intern = require("./lib/Intern");
+
+
 
 let teamArray = []
 
 const teamQuestions = [{
         type: 'input',
         message: 'What is your name?',
-        name: 'Name'
+        name: 'Name',
+        validate: function(name) {
+            if (isNaN(name)) {
+                return true;
+            } else {
+                console.log("     Please enter valid name")
+                return false;
+            }
+        }
     },
     {
         type: 'input',
         message: 'What is your id?',
-        name: 'Id'
+        name: 'Id',
+        validate: function(numbers) {
+            if (numbers > 0 && numbers < 999) {
+                return true;
+            } else {
+                console.log("    Please enter valid id number")
+                return false;
+            }
+        }
     },
     {
         type: 'input',
         message: 'What is your email?',
-        name: 'Email'
+        name: 'Email',
+        validate: function(email) {
+
+            valid = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(email)
+
+            if (valid) {
+                return true;
+            } else {
+                console.log(".  Please enter a valid email")
+                return false;
+            }
+        }
     },
     {
         type: 'list',
@@ -33,7 +67,15 @@ const teamQuestions = [{
 const managerQuestion = {
     type: 'input',
     message: 'What is your office number?',
-    name: 'OfficeNumber'
+    name: 'OfficeNumber',
+    validate: function(numbers) {
+        if (numbers > 0 && numbers < 999) {
+            return true;
+        } else {
+            console.log("    Please enter valid id number")
+            return false;
+        }
+    }
 };
 const engineerQuestion = {
     type: 'input',
@@ -118,8 +160,15 @@ function endQuestions() {
     })
 };
 
+// This function will use an if statement to make sure there is an output directory and then make the directory thereafter
+// Once it has been made the function for starterHTML will then move all of that information through the template in src folder 
+// and output it into the directory "dist" as an "index.html"
 function renderHTML() {
-    console.log(teamArray)
-}
+    // console.log(teamArray)
+    if (!fs.existsSync(outputDir)) {
+        fs.mkdirSync(outputDir);
+    }
+    fs.writeFileSync(outputPath, starterHTML(teamArray), "utf-8");
+};
 
 createEmployee();
