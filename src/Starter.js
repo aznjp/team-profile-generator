@@ -3,7 +3,7 @@
 const teamGeneration = (teamArray) => {
     const managerCard = (manager) => {
         return `
-        <div class="col-4 mb-4">
+        <div class="mb-4">
         <div class="card shadow">
           <div class="card-body text-center" style = "background-color:darkcyan">
             <h5 class="card-title text-white">${manager.getName()}</h5>
@@ -23,7 +23,7 @@ const teamGeneration = (teamArray) => {
     };
     const engineerCard = (engineer) => {
         return `
-        <div class="col-4 mb-4">
+        <div class="mb-4">
         <div class="card shadow">
           <div class="card-body text-center" style = "background-color:darkcyan">
             <h5 class="card-title text-white">${engineer.getName()}</h5>
@@ -43,7 +43,7 @@ const teamGeneration = (teamArray) => {
     };
     const internCard = (intern) => {
         return `
-        <div class="col-4 mb-4">
+        <div class="mb-4">
         <div class="card shadow">
           <div class="card-body text-center" style = "background-color:darkcyan">
             <h5 class="card-title text-white">${intern.getName()}</h5>
