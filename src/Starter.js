@@ -3,7 +3,7 @@
 const teamGeneration = (teamArray) => {
     const managerCard = (manager) => {
         return `
-        <div class="card" style="width: 18rem;">
+        <div class="card shadow" style="width: 18rem;">
         <div class="card-body">
           <h5 class="card-title">${manager.getName()}</h5>
           <p class="card-text manager"><i class="fas fa-address-card"></i> Manager</p>
@@ -18,7 +18,7 @@ const teamGeneration = (teamArray) => {
     };
     const engineerCard = (engineer) => {
         return `
-        <div class="card" style="width: 18rem;">
+        <div class="card shadow" style="width: 18rem;">
         <div class="card-body">
           <h5 class="card-title">${engineer.getName()}</h5>
           <p class="card-text"> <i class="fas fa-atom"/></i> Engineer</p>
@@ -33,7 +33,7 @@ const teamGeneration = (teamArray) => {
     };
     const internCard = (intern) => {
         return `
-        <div class="card" style="width: 18rem;">
+        <div class="card shadow" style="width: 18rem;">
         <div class="card-body">
           <h5 class="card-title">${intern.getName()}</h5>
           <p class="card-text"><i class="fas fa-user-graduate"></i> Intern</p>
@@ -74,7 +74,7 @@ const teamGeneration = (teamArray) => {
 
 };
 
-//  Once they are pushed into that new array it will then be added to string in array and called in template below prior to pushing out the 
+//  Once they are pushed into that new array it will then be added to string in array and called in template below prior to pushing out the module
 module.exports = teamArray => {
     return `
     <!DOCTYPE html>
