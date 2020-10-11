@@ -3,46 +3,55 @@
 const teamGeneration = (teamArray) => {
     const managerCard = (manager) => {
         return `
-        <div class="card shadow" style="width: 18rem;">
-        <div class="card-body">
-          <h5 class="card-title">${manager.getName()}</h5>
-          <p class="card-text manager"><i class="fas fa-address-card"></i> Manager</p>
-        </div>
-        <ul class="list-group list-group-flush">
-          <li class="list-group-item">ID: ${manager.getId()}</li>
-          <li class="list-group-item">Email: <a href="mailto:${manager.getEmail()}">${manager.getEmail()}</a></li>
-          <li class="list-group-item">Office Number: ${manager.getOfficeNumber()}</li>
-        </ul>
+        <div class="card shadow">
+          <div class="card-body text-center" style = "background-color:darkcyan">
+            <h5 class="card-title text-white">${manager.getName()}</h5>
+            <p class="card-text text-white"><i class="fas fa-address-card"></i> Manager</p>
+          </div>
+
+          <div>
+            <ul class="list-group list-group-flush text-center">
+              <li class="list-group-item" style = "background-color:lightcyan">ID: ${manager.getId()}</li>
+              <li class="list-group-item" style = "background-color:lightcyan">Email: <a href="mailto:${manager.getEmail()}">${manager.getEmail()}</a></li>
+              <li class="list-group-item" style = "background-color:lightcyan">Office Number: ${manager.getOfficeNumber()}</li>
+            </ul>
+          </div>
         </div>
      `;
     };
     const engineerCard = (engineer) => {
         return `
-        <div class="card shadow" style="width: 18rem;">
-        <div class="card-body">
-          <h5 class="card-title">${engineer.getName()}</h5>
-          <p class="card-text"> <i class="fas fa-atom"/></i> Engineer</p>
-        </div>
-        <ul class="list-group list-group-flush">
-          <li class="list-group-item">ID: ${engineer.getId()}</li>
-          <li class="list-group-item">Email: <a href="mailto:${engineer.getEmail()}">${engineer.getEmail()}</a></li>
-          <li class="list-group-item">Github: ${engineer.getGithub()}</li>
-        </ul>
+        <div class="card shadow">
+          <div class="card-body text-center" style = "background-color:darkcyan">
+            <h5 class="card-title text-white">${engineer.getName()}</h5>
+            <p class="card-text text-white"> <i class="fas fa-atom"/></i> Engineer</p>
+          </div>
+
+          <div>
+            <ul class="list-group list-group-flush text-center">
+              <li class="list-group-item" style = "background-color:lightcyan">ID: ${engineer.getId()}</li>
+              <li class="list-group-item" style = "background-color:lightcyan">Email: <a href="mailto:${engineer.getEmail()}">${engineer.getEmail()}</a></li>
+              <li class="list-group-item" style = "background-color:lightcyan">Github: <a href="${engineer.getGithub()}">${engineer.getGithub()}</a></li>
+            </ul>
+          </div>
         </div>
      `;
     };
     const internCard = (intern) => {
         return `
-        <div class="card shadow" style="width: 18rem;">
-        <div class="card-body">
-          <h5 class="card-title">${intern.getName()}</h5>
-          <p class="card-text"><i class="fas fa-user-graduate"></i> Intern</p>
-        </div>
-        <ul class="list-group list-group-flush">
-          <li class="list-group-item">ID: ${intern.getId()}</li>
-          <li class="list-group-item">Email: <a href="mailto:${intern.getEmail()}">${intern.getEmail()}</a></li>
-          <li class="list-group-item">School: ${intern.getSchool()}</li>
-        </ul>
+        <div class="card shadow">
+          <div class="card-body text-center" style = "background-color:darkcyan">
+            <h5 class="card-title text-white">${intern.getName()}</h5>
+            <p class="card-text text-white"><i class="fas fa-user-graduate"></i> Intern</p>
+          </div>
+
+          <div>
+            <ul class="list-group list-group-flush text-center">
+              <li class="list-group-item" style = "background-color:lightcyan">ID: ${intern.getId()}</li>
+              <li class="list-group-item" style = "background-color:lightcyan">Email: <a href="mailto:${intern.getEmail()}">${intern.getEmail()}</a></li>
+              <li class="list-group-item" style = "background-color:lightcyan">School: ${intern.getSchool()}</li>
+            </ul>
+          </div>
         </div>
      `;
     };
@@ -98,17 +107,14 @@ module.exports = teamArray => {
         <span class="navbar-brand mb-0 h1 w-100 text-center"> Team Profile </span>
     </nav>
 
-    <div class="container">
+    <div class = "container">
+      <div class="card-deck">
 
-        <div class="d-flex justify-content-around">
+        <!-- Insert the cards into this area -->
+        ${teamGeneration(teamArray)}
 
-            <!-- Insert the cards into this area -->
-            ${teamGeneration(teamArray)}
-
-        </div>
-
+      </div>
     </div>
-
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js">
     </script>
