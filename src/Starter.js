@@ -3,6 +3,7 @@
 const teamGeneration = (teamArray) => {
     const managerCard = (manager) => {
         return `
+        <div class="col-4 mb-4">
         <div class="card shadow">
           <div class="card-body text-center" style = "background-color:darkcyan">
             <h5 class="card-title text-white">${manager.getName()}</h5>
@@ -17,10 +18,12 @@ const teamGeneration = (teamArray) => {
             </ul>
           </div>
         </div>
+        </div>
      `;
     };
     const engineerCard = (engineer) => {
         return `
+        <div class="col-4 mb-4">
         <div class="card shadow">
           <div class="card-body text-center" style = "background-color:darkcyan">
             <h5 class="card-title text-white">${engineer.getName()}</h5>
@@ -35,10 +38,12 @@ const teamGeneration = (teamArray) => {
             </ul>
           </div>
         </div>
+        </div>
      `;
     };
     const internCard = (intern) => {
         return `
+        <div class="col-4 mb-4">
         <div class="card shadow">
           <div class="card-body text-center" style = "background-color:darkcyan">
             <h5 class="card-title text-white">${intern.getName()}</h5>
@@ -52,6 +57,7 @@ const teamGeneration = (teamArray) => {
               <li class="list-group-item" style = "background-color:lightcyan">School: ${intern.getSchool()}</li>
             </ul>
           </div>
+        </div>
         </div>
      `;
     };
@@ -86,7 +92,7 @@ const teamGeneration = (teamArray) => {
 //  Once they are pushed into that new array it will then be added to string in array and called in template below prior to pushing out the module
 module.exports = teamArray => {
     return `
-    <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -103,12 +109,12 @@ module.exports = teamArray => {
 </head>
 
 <body>
-    <nav class="navbar navbar-dark bg-dark mb-5">
-        <span class="navbar-brand mb-0 h1 w-100 text-center"> Team Profile </span>
+    <nav class="navbar navbar-dark bg-dark justify-content-center mb-5">
+        <span class="h1 text-white"> Team Profile </span>
     </nav>
 
     <div class = "container">
-      <div class="card-deck">
+      <div class="card-deck justify-content-center">
 
         <!-- Insert the cards into this area -->
         ${teamGeneration(teamArray)}
